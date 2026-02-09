@@ -8,6 +8,14 @@ alias v='nvim'
 alias f='fastfetch'
 alias em='emacs -nw'
 alias poweroff='sudo poweroff'
+alias dotpush='cd ~/.dotfiles && git add . && git commit -m "update" && git push && cd -'
+# Переносим историю Python в .config/python (нужно будет создать папку)
+export PYTHONSTARTUP="$HOME/.config/python/pythonrc"
+export PYTHONHISTORY="$HOME/.config/python/history"
+
+# Переносим конфиг и лог wget в .config/wget
+export WGETRC="$HOME/.config/wget/wgetrc"
+
 
 export EDITOR="emacs"
 export VISUAL="emacs"
