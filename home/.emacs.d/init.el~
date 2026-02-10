@@ -1,0 +1,102 @@
+;; --- 1. ПАКЕТЫ И РЕПОЗИТОРИИ ---
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org") t)
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+;; --- 2. ИНТЕРФЕЙС И ШРИФТЫ ---
+(set-face-attribute 'default nil :height 130 :weight 'bold)
+(set-face-attribute 'fixed-pitch nil :weight 'bold)
+(add-to-list 'default-frame-alist '(weight . bold))
+
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(global-display-line-numbers-mode t)
+(electric-pair-mode 1)
+(setq inhibit-startup-screen t)
+(setq-default mode-line-format '(" %*" "%b"))
+
+(use-package gruvbox-theme
+  :config (load-theme 'gruvbox-dark-medium t))
+
+;; --- 3. ПОДСВЕТКА И LSP (JAVA, PYTHON, HYPRLAND) ---
+(use-package lsp-mode
+  :hook ((python-mode . lsp-deferred)
+         (java-mode . lsp-deferred)
+         (html-mode . lsp-deferred)
+         (css-mode . lsp-deferred)
+         (c++-mode . lsp-deferred)
+         (hyprlang-ts-mode . lsp-deferred))
+  :commands (lsp lsp-deferred)
+  :config
+  (setq lsp-semantic-tokens-enable nil
+        lsp-semantic-tokens-honor-font-lock t
+        lsp-headerline-breadcrumb-enable nil
+        lsp-keep-workspace-alive nil
+        lsp-warn-no-matched-clients nil))
+
+(use-package lsp-java :after lsp)
+(use-package lsp-ui :commands lsp-ui-mode)
+
+;; НОВАЯ ПОДСВЕТКА ДЛЯ HYPRLAND (Tree-sitter)
+(use-package hyprlang-ts-mode
+  :mode "hyprland\\.conf\\'"
+  :vc (:url "https://github.com"))
+
+;; --- 4. КОМПЛИТШЕН И НАВИГАЦИЯ (Твой Vertico/Consult) ---
+(use-package vertico :init (vertico-mode))
+(use-package savehist :init (savehist-mode))
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-defaults nil))
+
+(use-package consult
+  :bind (("C-x b" . consult-buffer)
+         ("M-y" . consult-yank-pop)
+         ("M-g g" . consult-goto-line)
+         ("M-s l" . consult-line))
+  :init
+  (setq xref-show-xrefs-function #'consult-xref
+        xref-show-definitions-function #'consult-xref))
+
+(use-package company
+  :init (global-company-mode)
+  :config
+  (setq company-minimum-prefix-length 1
+        company-idle-delay 0.0))
+
+(use-package reverse-im
+  :config (reverse-im-activate "russian-computer"))
+
+(use-package vterm)
+
+;; --- 5. ГОРЯЧИЕ КЛАВИШИ ---
+(keymap-global-set "C-S-a" #'beginning-of-buffer)
+(keymap-global-set "C-S-e" #'end-of-buffer)
+(keymap-global-set "C-!" #'vterm)
+(global-set-key (kbd "M-g") 'goto-line)
+
+(when (memq window-system '(mac ns x))
+  (use-package exec-path-from-shell
+    :config (exec-path-from-shell-initialize)))
+
+;; --- 6. КАСТОМНЫЕ ЛИЦА (Жирный шрифт) ---
+(custom-set-faces
+ '(font-lock-keyword-face ((t (:weight bold))))
+ '(font-lock-type-face ((t (:weight bold))))
+ '(font-lock-builtin-face ((t (:weight bold))))
+ '(font-lock-constant-face ((t (:weight bold))))
+ '(font-lock-string-face ((t (:weight bold))))
+ '(font-lock-comment-face ((t (:weight bold))))
+ '(font-lock-function-name-face ((t (:weight bold))))
+ '(font-lock-variable-name-face ((t (:weight bold)))))
+
+;; Настройки бэкапов
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups/")))

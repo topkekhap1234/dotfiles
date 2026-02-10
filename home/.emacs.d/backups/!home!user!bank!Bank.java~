@@ -1,0 +1,21 @@
+public class Bank {
+    private Account[] accounts;
+	private int accountCount;
+
+	Bank(int capacity) {
+		this.accounts = new Account[capacity];
+		this.accountCount = 0;
+	}
+
+	public void createAccount(String name, int initialDeposit) {
+		if (accountCount < accounts.length) {
+			int newID = accountCount + 1;
+			accounts[accountCount] = new Account(newID, initialDeposit, name);
+			accountCount++;
+			System.out.println("account created");
+
+		} else {
+			System.out.println("bank is overloaded.");
+		}
+	}
+}

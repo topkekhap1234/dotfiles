@@ -1,0 +1,7 @@
+public class Student extends Person {
+    int course;
+    public Student(int height, int course) {
+	super (height);
+	this.course = course;
+    }
+}

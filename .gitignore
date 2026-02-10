@@ -1,0 +1,12 @@
+# Emacs junk
+.emacs.d/elpa/
+.emacs.d/auto-save-list/
+.emacs.d/network-security.data
+.emacs.d/recentf
+.emacs.d/.desktop
+.emacs.d/.session
+.emacs.d/places
+.emacs.d/tramp
+.emacs.d/url/
+.emacs.d/bookmarks
+*.elc

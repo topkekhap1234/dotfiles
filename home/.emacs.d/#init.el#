@@ -1,0 +1,108 @@
+;; --- 1. ОФИЦИАЛЬНАЯ ИНИЦИАЛИЗАЦИЯ MELPA ---
+(require 'package)
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  (when no-ssl
+    (warn "gnutls не найден, использую небезопасный http"))
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t))
+
+(package-initialize)
+
+;; Установка use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-always-
+(set-face-attribute 'default nil :height 150 :weight 'bold)
+(set-face-attribute 'fixed-pitch nil :weight 'bold)
+(set-face-attribute 'variable-pitch nil :weight 'bold)
+(use-package gruvbox-theme
+  :config
+  (load-theme 'gruvbox-dark-medium t))
+
+;; --- 3. ЯЗЫКИ (JAVA И PYTHON) ---
+(use-package lsp-mode
+  :hook ((python-mode . lsp-deferred)
+         (java-mode . lsp-deferred)
+         (c++-mode . lsp-deferred))
+  :commands (lsp lsp-deferred)
+  :config
+  (setq lsp-semantic-tokens-enable nil)
+  (setq lsp-semantic-tokens-honor-font-lock t)
+
+  ;; --- ФИНАЛЬНЫЙ ДОБИВ ЖИРНОСТИ ДЛЯ JAVA И СИНТАКСИСА ---
+
+(custom-set-faces
+ ;; Ключевые слова (public, class, static, return)
+ '(font-lock-keyword-face ((t (:weight bold :slant normal))))
+ ;; Типы данных (String, int, Integer, List)
+ '(font-lock-type-face ((t (:weight bold :slant normal))))
+ ;; Встроенные функции и константы
+ '(font-lock-builtin-face ((t (:weight bold :slant normal))))
+ '(font-lock-constant-face ((t (:weight bold :slant normal))))
+ ;; Строки и комментарии
+ '(font-lock-string-face ((t (:weight bold))))
+ '(font-lock-comment-face ((t (:weight bold :slant normal))))
+ ;; Названия функций и классов
+ '(font-lock-function-name-face ((t (:weight bold :slant normal))))
+ '(font-lock-variable-name-face ((t (:weight bold :slant normal)))))
+
+;; Дополнительная защита: запрещаем всем будущим лицам использовать тонкий шрифт
+(set-face-attribute 'fixed-pitch nil :weight 'bold)
+(add-to-list 'default-frame-alist '(weight . bold)))
+
+
+(use-package lsp-java :after lsp)
+(use-package lsp-ui :commands lsp-ui-mode)
+
+;; --- 4. ТВОИ НАСТРОЙКИ CONSULT И VERTICO ---
+(use-package vertico
+  :init (vertico-mode))
+
+(use-package savehist
+  :init (savehist-mode))
+
+(use-package consult
+  :bind (("C-x b" . consult-buffer)
+         ("M-y" . consult-yank-pop)
+         ("M-g g" . consult-goto-line)
+         ("M-s l" . consult-line))
+  :init
+  (setq xref-show-xrefs-function #'consult-xref
+        xref-show-definitions-function #'consult-xref)
+  :config
+  (setq consult-narrow-key "<")
+  (consult-customize
+   consult-ripgrep consult-git-grep consult-grep
+   :preview-key '(:debounce 0.4 any)))
+
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-defaults nil))
+
+;; --- 5. ЧИСТКА ИНТЕРФЕЙСА ---
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(global-display-line-numbers-mode t)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+
+(setq lsp-semantic-tokens-enable nil)
+(setq-default mode-line-format '(" %*" "%b"))
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups/")))

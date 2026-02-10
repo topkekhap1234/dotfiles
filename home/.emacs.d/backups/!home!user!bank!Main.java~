@@ -1,0 +1,21 @@
+public class Main {
+    public static void main(String[] args) {
+        // Создаем экземпляр банка
+        Bank myBank = new Bank(10);
+
+        // Имитируем работу "сервера" (создаем данные)
+        myBank.createAccount("Ivan", 500.0);
+        myBank.createAccount("Maria", 1000.0);
+        myBank.createAccount("Petr", 50.0);
+
+        System.out.println("\nSostoyanie do perevoda:");
+        myBank.showAllAccounts();
+
+        // Пробуем сделать перевод
+        System.out.println("\nPerevod 200 ot Maria k Ivanu...");
+        myBank.transfer(2, 1, 200.0);
+	
+        System.out.println("\nSostoyanie posle perevoda:");
+        myBank.showAllAccounts();
+    }
+}

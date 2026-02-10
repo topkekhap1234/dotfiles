@@ -1,0 +1,93 @@
+configuration {
+    modi: "drun,run";
+    show-icons: true;
+//	 icon-theme: "Gruvbox-Plus-Dark";
+    display-drun: "";
+    display-run: "";
+    drun-display-format: "{name}";
+    lines: 5;
+    font: "JetBrainsMono 15";
+    width: 30%;
+    location: 0;
+    yoffset: 40;
+    xoffset: 300;
+    padding: 10px;
+    fixed-num-lines: true;
+}
+
+/* Полное переопределение всех цветов */
+* {
+    background-color: #202020;
+    text-color: #ebdbb2;
+    border-color: #ebdbb2;
+}
+
+window {
+    background-color: #202020;
+    border: 3px;
+    border-color: #d79921;
+    border-radius: 0px;
+    width: 850;
+}
+
+mainbox {
+    background-color: #202020;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: #202020;
+}
+
+prompt {
+    background-color: #202020;
+    text-color: #ebdbb2;
+}
+
+textbox {
+    background-color: #202020;
+    text-color: #ebdbb2;
+}
+
+entry {
+    background-color: #282828;
+    text-color: #ebdbb2;
+}
+
+listview {
+    background-color: #202020;
+    spacing: 0px;
+}
+
+element {
+    background-color: #202020;
+    text-color: #ebdbb2;
+}
+
+element selected {
+    background-color: #d65d0e;
+    text-color: #ebdbb2;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+}
+
+element-icon {
+    background-color: #202020;
+    text-color: inherit;
+    size: 30px;
+}
+element-icon selected {
+    background-color: #d65d0e;
+    text-color: inherit;
+    size: 30px;
+}
+
+//scrollbar {
+//    handle-width: 0px;
+//    handle-color: #373B41;
+//}
+
+

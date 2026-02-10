@@ -1,0 +1,34 @@
+import subprocess
+import sys
+
+def check_processes(target_name=None):
+    try:
+        # Получаем список: имя, %CPU, %RAM
+        result = subprocess.run(['ps', '-eo', 'comm,pcpu,rss', '--no-headers'], capture_output=True, text=True)
+        lines = result.stdout.splitlines()
+
+        for line in lines:
+            parts = line.split()
+            if len(parts) < 3:
+                continue
+            try:
+                name, cpu = parts[0], float(parts[1])
+                ram_mb = round(int(parts[2]) / 1024, 1)
+            except ValueError:
+    # Если в частях [1] или [2] буквы (заголовки), просто идем дальше
+                continue
+
+            # 1. Условие: процесс должен что-то потреблять
+            if cpu > 0 or ram_mb > 0.0:
+                
+                # 2. Условие: Либо мы ищем конкретное имя, либо выводим всё (если target_name не задан)
+                if target_name is None or target_name in name:
+                    print(f"{name:20} | CPU: {cpu:>5}% | RAM: {ram_mb:>5}MB")
+
+    except Exception as e:
+        print(f"Ошибка: {e}")
+
+if __name__ == "__main__":
+    # Если аргумент есть - передаем его, если нет - передаем None
+    arg = sys.argv[1] if len(sys.argv) > 1 else None
+    check_processes(arg)

@@ -1,8 +1,9 @@
 * {
   border: none;
   border-radius: 0px;
-  font-family: "JetBrains Mono";
-  font-weight: bold;
+  /* База — Medium, чтобы не было "перегруза" жирностью */
+  font-family: "JetBrains Mono Medium";
+  font-weight: 500;
   font-size: 17px;
   min-height: 0;
   color: #ebdbb2;
@@ -12,15 +13,20 @@
 
 window#waybar {
   background: #1d2021;
+  /* Границу убрал */
 }
 
-/* Workspace Buttons */
-#workspaces button label{
+/* Workspace Buttons — Оставил жирными, как ты просил */
+#workspaces button {
+  font-weight: bold;
+}
+
+#workspaces button label {
   padding: 0 11px;
 }
 
 #workspaces button.active label {
-  color: #ebdbb2;
+  color: #ebdbb2; /* Твой оригинальный цвет */
 }
 
 #workspaces button:hover {
@@ -28,17 +34,24 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background: #d65d0e;
+  background: #d65d0e; /* Твой оригинальный фон */
 }
 
+/* Индикаторы — Medium для "живого" контраста */
 #clock, #pulseaudio, #tray, #language {
   padding: 0 10px;
+  font-weight: 500;
+}
+
+/* Часы — Курсив, как в Emacs */
+#clock {
+  color: #b16286;
+  font-style: italic;
 }
 
 #language {
   color: #d79921;
 }
-
 
 #wireplumber {
   color: #83a598;
@@ -47,6 +60,7 @@ window#waybar {
 #pulseaudio.muted {
   padding: 0 10px;
   color: #cc241d;
+  font-weight: bold;
 }
 
 #tray {
@@ -57,10 +71,16 @@ window#waybar {
   color: #98971a;
 }
 
-#clock {
-  color: #b16286;
+#memory {
+  color: #98971a;
+  font-weight: 500;
+  padding: 0 10px;
 }
 
+
+/* Батарейка — Жирная, как ты просил */
 #battery {
-  color: #d65d0e
+  font-weight: bold;
+  color: #d65d0e;
+  padding: 0 10px;
 }

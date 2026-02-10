@@ -6,7 +6,7 @@
 alias ls='ls --color=auto'
 alias v='nvim'
 alias f='fastfetch'
-alias em='emacs -nw'
+alias em='emacsclient -c -a ""'
 alias poweroff='sudo poweroff'
 alias dotpush='cd ~/.dotfiles && git add . && git commit -m "update" && git push && cd -'
 # Переносим историю Python в .config/python (нужно будет создать папку)

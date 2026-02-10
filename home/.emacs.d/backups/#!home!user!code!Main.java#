@@ -1,0 +1,12 @@
+public class Main {
+    public static void main(String[] args) {
+	System.out.println("hi");
+	Person max = new Person(120);
+	max.say("hello");
+	max.say("I'm Max");
+
+	System.out.println(max.height);
+	Student vova = new Student(120, 3);
+	System.out.println(vova.course);
+    }
+}

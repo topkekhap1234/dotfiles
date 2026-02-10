@@ -1,0 +1,6 @@
+public class Person {
+    int height;
+    void say(String str) {
+	System.out.println(str);
+    }
+}
