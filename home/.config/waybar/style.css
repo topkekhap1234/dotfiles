@@ -12,13 +12,13 @@
 }
 
 window#waybar {
-  background: #1d2021;
-  /* Границу убрал */
+    background: #1d2021;
+    font-style: italic;
 }
 
-/* Workspace Buttons — Оставил жирными, как ты просил */
 #workspaces button {
-  font-weight: bold;
+    font-weight: 500;
+    font-style: normal;
 }
 
 #workspaces button label {
@@ -26,7 +26,7 @@ window#waybar {
 }
 
 #workspaces button.active label {
-  color: #ebdbb2; /* Твой оригинальный цвет */
+  color: #ebdbb2;
 }
 
 #workspaces button:hover {
@@ -34,33 +34,34 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background: #d65d0e; /* Твой оригинальный фон */
+  background: #d65d0e;
 }
 
-/* Индикаторы — Medium для "живого" контраста */
 #clock, #pulseaudio, #tray, #language {
   padding: 0 10px;
   font-weight: 500;
+  font-style: normal;
 }
 
-/* Часы — Курсив, как в Emacs */
 #clock {
   color: #b16286;
-  font-style: italic;
+  font-style: normal;
 }
 
 #language {
-  color: #d79921;
+    color: #d79921;
 }
 
 #wireplumber {
-  color: #83a598;
+    color: #83a598;
+    font-weight: 500;
+    font-style: normal;
 }
 
 #pulseaudio.muted {
   padding: 0 10px;
   color: #cc241d;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 #tray {
@@ -75,12 +76,13 @@ window#waybar {
   color: #98971a;
   font-weight: 500;
   padding: 0 10px;
+  font-style: normal;
 }
 
 
-/* Батарейка — Жирная, как ты просил */
 #battery {
-  font-weight: bold;
+  font-weight: 500;
   color: #d65d0e;
   padding: 0 10px;
+  font-style: normal;
 }
