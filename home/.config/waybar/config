@@ -10,6 +10,7 @@
       "memory",
       "battery",
       "wireplumber",
+      "network",
       "clock",
       "tray"],
     
@@ -21,14 +22,15 @@
     "persistent-workspaces": {"*": [1, 2, 3, 4]},
     },
     "memory": {
-    "interval": 5,
+    "interval": 1,
     "format": "{used:0.1f}G",
     "tooltip": true,
     "tooltip-format": "avaible: {avail}GB"
 },
   "clock": {
     "timezone": "Europe/Moscow",
-    "locale": "C", 
+    "locale": "C",
+    "interval": 1,
     "format": "{:%H:%M}",
     "format-alt": "{:%Y-%m-%d %H:%M:%S}"
 },
@@ -40,22 +42,22 @@
       "tooltip": true
       },
   "wireplumber": {
-    "format": "{volume} ",
-    "format-muted": "MUTED ",
+    "format": "{volume}",
+    "format-muted": "MUTED",
     "on-click": "pavucontrol",
     "scroll-step": 2
 },
   "network": {
-	"use-dbus": true,
     "interface": "wlo1",
-    "format-wifi": "{ifname}",
-    "format-disconnected": "{ifname} disconnected",
-    "interval": 5
-  },
+    "format-wifi": "{essid}",
+    "format-ethernet": "Connected",
+    "format-disconnected": "Disconnected",
+    "max-length": 10
+},
   "battery": {
     "interval": 1,
-    "format": "{capacity}% ",
-    "format-charging": "CHARGING {capacity}% ",
+    "format": "{capacity}%",
+    "format-charging": "^{capacity}%^",
   },
   "keyboard-state": {
     "numlock": false,

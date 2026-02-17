@@ -21,11 +21,25 @@
 ;; --- 3. ИНТЕРФЕЙС ---
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+;;(tab-bar-mode 1)
 (scroll-bar-mode -1)
 (global-display-line-numbers-mode t)
 (electric-pair-mode 1)
 (setq inhibit-startup-screen t)
-(setq-default mode-line-format '(" %*" "%b"))
+;;(setq tab-bar-show 1)
+(setq-default mode-line-format '("%e " mode-line-modified " %b (%I) "))
+(setq scroll-step 1)
+(setq scroll-conservatively 10000)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; скроллинг мышью по одной строке
+(setq mouse-wheel-progressive-speed nil)            ;; отключаем ускорение прокрутки
+(setq scroll-margin 10) ;; Прокрутка начнется, когда до края останется 10 строк
+;; Фиксируем ширину колонки номеров строк
+(setq display-line-numbers-width-start t)
+;;чтобы открывал линки без спросов
+(setq org-confirm-elisp-link-function nil)
+
+
+
 
 (use-package gruvbox-theme
   :config (load-theme 'gruvbox-dark-medium t))
@@ -55,7 +69,7 @@
 (use-package consult
   :bind (("C-x b" . consult-buffer)
          ("M-y" . consult-yank-pop)
-         ("M-g g" . consult-goto-line)
+;;         ("M-g g" . consult-goto-line)
          ("M-s l" . consult-line)))
 
 (use-package company

@@ -1,0 +1,500 @@
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+ls node_modules/
+rm package.json 
+rm package-lock.json 
+ls
+mv processor.py ~/test/
+ls
+dc test/
+cd test/
+ls
+cd
+ls
+ls
+ls
+ls
+ls
+ls
+ls
+clear
+ls
+clear
+cd zapret-discord-youtube-linux/
+ls
+./main_script.sh 
+./main_script.sh 
+f
+sudo reboot
+ls
+ls
+clear
+f
+python processor
+ls
+cd tes
+cd test/
+ls
+cd
+sudo xbps-install tmux
+clear
+f
+clear
+sudo poweroff
+tmux
+btop
+sudo xbps-remove tmux
+ping google.com
+
+ping google.com -h
+clear
+traceroute google.com
+traceroute youtube.com
+clear
+traceroute donutsmp.net
+clear
+mkdir Documents
+ls
+\
+arp -a
+ip neighbor show
+cd Documents/
+ls
+rm -r sysadmin/
+ls
+cd
+ls
+ls
+cd Do
+cd Documents/
+ls
+cd
+ls
+cd Documents/
+ls
+ls
+ls
+# Устанавливаем символы и популярный шрифт
+cd zapret-discord-youtube-linux/
+./main_script.sh 
+./main_script.sh 
+cd Downloads/
+unzip Umbrella-Classic-Cursor.zip 
+ls
+cd Umbrella-Classic-Cursor
+ls
+firefox Preview.png 
+cd Umbrella-Classic/
+ls
+cd ..
+sudo mv Umbrella-Classic/ /usr/share/icons/
+cd
+iejhdnieri
+poweroff
+wetusb
+ls
+clear
+f
+clear
+ls
+cd .config
+ls
+cd
+clear
+ls
+cd appimages/
+ls
+clear
+f
+
+cp -r ~/.config ~/.config_backup
+ls -a
+mkdir -p ~/.dotfiles/conf/.config
+ls
+ls -a
+cd .dotfiles/
+ls
+cd conf/
+ls
+ls -a
+cd ..
+cp -r ~/.config/* ~/.dotfiles/conf/.config/
+cd ~/.dotfiles
+stow -nv conf
+sudo xbps-install stow
+cd ~/.dotfiles
+stow -nv conf
+ls
+cd conf
+ls
+cd .config
+tree .
+sudo xbps-install tree
+tree
+clear
+cd ..
+cd ..
+ls
+rm -r conf/
+cd
+ranger
+clear
+cd
+rm -rf ~/.dotfiles/*
+mkdir -p ~/.dotfiles/{hypr,kitty,alacritty,helix,btop,cava,fastfetch}/.config
+# Переносим папки целиком в их новые дома
+mv ~/.config/hypr ~/.dotfiles/hypr/.config/
+mv ~/.config/kitty ~/.dotfiles/kitty/.config/
+mv ~/.config/alacritty ~/.dotfiles/alacritty/.config/
+mv ~/.config/helix ~/.dotfiles/helix/.config/
+mv ~/.config/btop ~/.dotfiles/btop/.config/
+mv ~/.config/cava ~/.dotfiles/cava/.config/
+mv ~/.config/fastfetch ~/.dotfiles/fastfetch/.config/
+cd ~/.dotfiles
+stow hypr kitty alacritty helix btop cava fastfetch
+ls -l ~/.config | grep "-> .dotfiles"
+[200~cd ~/.dotfiles
+stow -D hypr kitty alacritty helix btop cava fastfetch
+cd ~/.dotfiles
+stow -D hypr kitty alacritty helix btop cava fastfetch
+mv ~/.dotfiles/hypr/.config/hypr ~/.config/
+mv ~/.dotfiles/kitty/.config/kitty ~/.config/
+mv ~/.config/alacritty.bak ~/.config/alacritty 2>/dev/null # На случай если была бакап-папка
+mv ~/.dotfiles/alacritty/.config/alacritty ~/.config/
+mv ~/.dotfiles/helix/.config/helix ~/.config/
+mv ~/.dotfiles/btop/.config/btop ~/.config/
+mv ~/.dotfiles/cava/.config/cava ~/.config/
+mv ~/.dotfiles/fastfetch/.config/fastfetch ~/.config/
+clear
+stow -h
+ls
+cd
+cd .config
+ls
+mv ~/.config/alacritty.bak ~/.config/alacritty 2>/dev/null # На случай если была бакап-папка
+f
+
+rm -rf ~/.dotfiles/*
+ls
+ls -a
+mkdir -p ~/.dotfiles/home/.config
+# Перемещаем папки в дотфайлы
+mv ~/.config/hypr ~/.dotfiles/home/.config/
+mv ~/.config/kitty ~/.dotfiles/home/.config/
+mv ~/.config/alacritty ~/.dotfiles/home/.config/
+mv ~/.config/helix ~/.dotfiles/home/.config/
+mv ~/.config/btop ~/.dotfiles/home/.config/
+mv ~/.config/cava ~/.dotfiles/home/.config/
+mv ~/.config/fastfetch ~/.dotfiles/home/.config/
+cd .dotfiles/
+stow home
+
+ls -l ~/.config | grep "-> .dotfiles"
+emacsclient -c ~/.config/alacritty/alacritty.toml 
+ls
+ls home
+emacsclient -c ~/.dotfiles/home/.config/alacritty/alacritty.toml 
+emacsclient -c ~/.dotfiles/home/.config/alacritty/alacritty.toml 
+
+git config --global user.name "Тво�Topkekhap1234"
+git config --global user.email "твtopkekhap1234@gmail.com"
+cd ~/.dotfiles
+git init
+# Добавляем все файлы (Stow-структуру) в индекс
+git add .
+# Фиксируем изменения
+git commit -m "Initial commit: configs for hypr, kitty, helix, etc."
+git remote add origin https://github.com/topkekhap1234/dotfiles.git
+git branch -M main
+git push -u origin main
+git push -u origin main
+ls ..
+ls -a ..
+mv ~/.bashrc ~/.bash_profile ~/.xinitrc ~/.gitconfig ~/.gtkrc-2.0 ~/.inputrc ~/.profile ~/.dotfiles/home/
+cd ~/.dotfiles
+stow home
+git add .
+git commit -m "Add core dotfiles from home directory"
+git push
+git config --global credential.helper store
+git push
+git push
+git config --global credential.helper store
+rm -rf ~/.config_backup
+cd
+mkdir -p ~/Pictures/Screenshots
+mv ~/screens/* ~/Pictures/Screenshots/ 2>/dev/null
+rm -rf ~/screens
+rm ~/.wget-hsts ~/.python_history
+rm -rf ~/node_modules
+
+sudo rm -rf ~/node_modules
+emacsclient -c ~/.dotfiles/home/.bashrc 
+mkdir -p ~/.dotfiles/home/.config/python
+mkdir -p ~/.dotfiles/home/.config/wget
+touch ~/.dotfiles/home/.config/python/pythonrc
+touch ~/.dotfiles/home/.config/python/history
+touch ~/.dotfiles/home/.config/wget/wgetrc
+cd ~/.dotfiles
+stow home
+# Применяем настройки bash прямо сейчас
+source ~/.bashrc
+rm ~/.python_history ~/.wget-hsts
+cd
+ls -a
+rm .bash_history-01923.tmp 
+clear
+ls
+ls -a
+cp wps ~/Pictures/wps/
+cp -r wps ~/Pictures/wps/
+cd Pictures/
+ls
+cd wps/
+ls
+cd
+
+mkdir -p ~/.dotfiles/home/.config/waybar
+mv ~/.config/waybar/* ~/.dotfiles/home/.config/waybar/
+# Удаляем теперь уже пустую папку в .config, чтобы Stow мог создать симлинк
+rmdir ~/.config/waybar
+ls
+rmdir ~/.config/waybar
+cd .dotfiles/
+ls
+cd home
+ls
+cd .config/
+ls
+cd waybar/
+ls
+cd
+ls
+cd ~/.dotfiles
+stow home
+git add .
+git commit -m "Add waybar config to dotfiles"
+git push
+mkdir -p ~/.dotfiles/home/.local/share/icons
+cp -r /usr/share/icons/И�Gruvbox-Plus-Dark ~/.dotfiles/home/.local/share/icons/
+cp -r /usr/share/icons/Gruvbox-Plus-Dark/ ~/.dotfiles/home/.local/share/icons/
+cp -r /usr/share/icons/Gruvbox-Plus-Dark/ ~/.dotfiles/home/.local/share/icons/
+
+git add .
+git commit -m "Add custom icons to local share"
+git push
+mkdir -p ~/.dotfiles/home/.local/share/themes
+mkdir -p ~/.dotfiles/home/.local/share/fonts
+cp -r /usr/share/themes/gruvbox-dark-gtk/ ~/.dotfiles/home/.local/themes/
+ ~/.local/themes/
+clear
+# Посмотри список шрифтов: ls /usr/share/fonts
+# Обычно шрифты лежат в подпапках (TTF, OTF). Копируй нужную:cp -r
+cp -r /usr/share/fonts/TTF/
+cd .dotfiles/
+ls -a
+cava
+cava
+sudo xbps-install cava
+sudo xbps-install -Su
+cava
+clear
+sudo xbps-remove cava
+sudo xbps-install cava
+cava
+clear
+sudo xbps-remove cava
+clear
+clear
+phetch
+clear
+pfetch
+poweroff
+hypr monitors all
+hyprmonitors all
+hyprctl monitors all
+hyprctl monitors all
+hyprctl monitors all
+hyprctl monitors all
+hyprctl monitors all
+hyprctl monitors all
+hyprctl monitors all
+hyprctl monitors all
+hyprctl monitors all
+hyprctl monitors all
+sudo xbps-install dnsmasq
+sudo emacsclient -c /etc/dnsmasq.conf
+sudo emacsclient -c /etc/dnsmasq.conf
+sudo emacs /etc/dnsmasq.conf
+sudo ln -s etc/sv/dnsmasq /var/service/
+sudo emacs /etc/resolv.conf
+sudo xbps-install bind-utils
+sudo xbps-install bind-utils
+sudo xbps-install -S bind-utils
+sudo xbps-install htop
+sudo emacs /etc/resolv.conf
+sudo xbps-install -S bind-utils
+sudo xbps-install  bind-utils
+sudo xbps-install -u xbps
+sudo xbps-install  bind-utils
+sudo emacs /etc/dnsmasq.conf
+sudo sv restart dnsmasq
+sudo sv status dnsmasq
+ls /etc/sv/dnsmasq
+sudo ln -s /etc/sv/dnsmasq /var/service/
+sudo sv status dnsmasq
+sudo rm /var/service/dnsmasq
+ls -d /etc/sv/dnsmasq
+sudo ln -s /etc/sv/dnsmasq /var/service/
+sudo sv status dnsmasq
+tome host google.com
+time host google.com
+cat /etc/resolv.conf
+time host google.com
+time host google.com
+time host google.com
+host -v google.com
+ip route
+poweroff
+sdo xbps-install cloudflare-warp
+sudo xbps-install cloudflare-warp
+sudo xbps-query cloudfalre
+sudo xbps-query cloudflare
+xbps-query cloudflare
+xbps-query cloudflare
+ls
+ls
+ls -a
+cd .
+cd ..
+ls
+cd user
+lls
+ls
+clear
+clear
+pfetch
+clear
+em
+clear
+sudo em
+sudo emacs
+sudo emacsclient -c
+sudo emacsclient -c -a ""
+sudo xbps-install -Su
+f
+clear
+phetch
+fetch
+pfetch
+sudo xbpd-remove efm-langserver
+sudo xbps-remove efm-langserver
+btop
+pkill emacs
+btop
+sudo pkill emacs
+cp init.el ~/init.el.back
+ls ~
+btop
+sudo xbps-remove wireshark
+sudo xbps-remove wireshark wireshark-qt
+waybar
+curl -s 'wttr.in/Moscow?format=%t
+curl -s 'wttr.in/Moscow?format=%t'
+mkdir -p ~/.dotfiles/home/.emacs.d
+# Перемещаем всё содержимое
+mv ~/.emacs.d/* ~/.dotfiles/home/.emacs.d/
+# Удаляем теперь уже пустую папку в корне
+rmdir ~/.emacs.d
+rm -r ~/.emacs.d
+cd ~/.dotfiles
+stow home
+cat <<EOF >> ~/.dotfiles/.gitignore
+# Emacs junk
+.emacs.d/elpa/
+.emacs.d/auto-save-list/
+.emacs.d/network-security.data
+.emacs.d/recentf
+.emacs.d/.desktop
+.emacs.d/.session
+.emacs.d/places
+.emacs.d/tramp
+.emacs.d/url/
+.emacs.d/bookmarks
+*.elc
+EOF
+
+git add .
+git commit -m "Add emacs config and ignore junk files"
+git push
+git status
+cd .dotfiles/
+ls
+git add .
+git commet -m "changed waybar"
+git commit -m "changed waybar"
+git push
+# Удаляем теперь уже пустую папку в .config, чтобы Stow мог создать симлинк
+clear
+pfetch
+# Удаляем теперь уже пустую папку в .config, чтобы Stow мог создать симлинк
+clear
+grim -g
+grim -h
+grim -g
+grim -t
+clear
+grim
+ranger
+f
+cd Documents/
+cd test/
+ls
+rm \#processor.py# 
+python3 processor.py 
+clear
+f
+poweroff
+poweroff
+f
+# Удаляем теперь уже пустую папку в .config, чтобы Stow мог создать симлинк
+f
+f
+bto
+p
+btop
+
+btop
+f
+sudo xbps-install tmux
+tmux
+cat ~/.emacs.d/init.el
+cd .config
+ls
+cd ..
+ls
+ls -a
+cleear
+clear
+poweroff
+sudo reboot
+vtop
+btop
+f
+btop
+source .bashrc
+emacs-reboot
+emacs-reboot
+emacs-reboot
+emacs-reboot

@@ -1,0 +1,45 @@
+# --- ПРЕФИКС ---
+set -g prefix F12
+unbind C-b
+bind F12 send-prefix
+
+# --- УПРАВЛЕНИЕ В СТИЛЕ EMACS (F12 + Клавиша) ---
+# Сплиты (C-x 2, C-x 3)
+bind 2 split-window -v -c "#{pane_current_path}"
+bind 3 split-window -h -c "#{pane_current_path}"
+
+# Окна (C-x 0, C-x o)
+bind 0 kill-pane
+bind o select-pane -t :.+
+
+# Табы (C-x t ...)
+bind c new-window -c "#{pane_current_path}"
+bind n next-window
+bind p previous-window
+bind k confirm-before -p "Kill window #W? (y/n)" kill-window
+bind b choose-tree -w
+
+# --- ГЛОБАЛЬНЫЕ НАСТРОЙКИ ---
+set -s escape-time 0
+set -g mouse on
+setw -g mode-keys emacs
+set -g base-index 1
+
+# --- ТЕМА: GRUVBOX + ЦВЕТ #e65d0e ---
+set -g default-terminal "screen-256color"
+
+# Статусная строка
+set -g status-style "bg=#282828,fg=#ebdbb2"
+set -g status-left "#[fg=#282828,bg=#e65d0e,bold] #S "
+set -g status-right "#[fg=#e65d0e,bold] %H:%M "
+
+# Оформление табов
+setw -g window-status-format "#[fg=#928374] #I:#W "
+setw -g window-status-current-format "#[fg=#e65d0e,bg=#3c3836,bold] #I:#W* "
+
+# Границы панелей
+set -g pane-border-style "fg=#3c3836"
+set -g pane-active-border-style "fg=#e65d0e"
+
+# Сообщения tmux (например, при нажатии F12 + :)
+set -g message-style "fg=#e65d0e,bg=#282828,bold"

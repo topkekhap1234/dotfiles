@@ -772,5 +772,5 @@ set preview_images_method ueberzug
 set_preview_images_method_provider auto
 set colorscheme default
 
-map X shell -f ./%f
+map X shell -p ./%f
 default_linemode devicons

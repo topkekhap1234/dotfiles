@@ -38,23 +38,32 @@ window#waybar {
 }
 
 #clock, #pulseaudio, #tray, #language {
-  padding: 0 10px;
+    padding: 0 10px;
   font-weight: 500;
   font-style: normal;
 }
 
 #clock {
-  color: #b16286;
+    color: #b16286;
+    padding: 0 10px;
   font-style: normal;
 }
 
 #language {
     color: #d79921;
+    padding: 0 10px;
 }
 
 #wireplumber {
     color: #83a598;
     font-weight: 500;
+    font-style: normal;
+    padding: 0 10px;
+}
+
+#network {
+    color: #689d6a;
+    padding: 0 10px;
     font-style: normal;
 }
 
@@ -65,6 +74,7 @@ window#waybar {
 }
 
 #tray {
+    padding: 0 10px;
   color: #d65d0e;
 }
 
